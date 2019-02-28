@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybatis.nnewdemo.mapper.RoleModelMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.mybatis.nnewdemo.entity.RoleModel">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="is_active" property="isActive" jdbcType="TINYINT"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        name,
+        is_active,
+        description,
+        last_update_time
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="roleModel.id">
+        INSERT INTO role_model (
+            id,
+            name,
+            is_active,
+            description,
+            last_update_time
+        ) VALUES (
+            #{roleModel.id,jdbcType=INTEGER},
+            #{roleModel.name,jdbcType=VARCHAR},
+            #{roleModel.isActive,jdbcType=TINYINT},
+            #{roleModel.description,jdbcType=VARCHAR},
+            #{roleModel.lastUpdateTime,jdbcType=TIMESTAMP}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="roleModel.id">
+        INSERT INTO role_model
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleModel.id!=null"> id,</if>
+            <if test="roleModel.name!=null"> name,</if>
+            <if test="roleModel.isActive!=null"> is_active,</if>
+            <if test="roleModel.description!=null"> description,</if>
+            <if test="roleModel.lastUpdateTime!=null"> last_update_time,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="roleModel.id!=null">#{roleModel.id,jdbcType=INTEGER},
+            </if>
+            <if test="roleModel.name!=null">#{roleModel.name,jdbcType=VARCHAR},
+            </if>
+            <if test="roleModel.isActive!=null">#{roleModel.isActive,jdbcType=TINYINT},
+            </if>
+            <if test="roleModel.description!=null">#{roleModel.description,jdbcType=VARCHAR},
+            </if>
+            <if test="roleModel.lastUpdateTime!=null">#{roleModel.lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO role_model (
+            id,
+            name,
+            is_active,
+            description,
+            last_update_time
+        )VALUES
+        <foreach collection="roleModels" item="roleModel" index="index" separator=",">
+            (
+            #{roleModel.id,jdbcType=INTEGER},
+            #{roleModel.name,jdbcType=VARCHAR},
+            #{roleModel.isActive,jdbcType=TINYINT},
+            #{roleModel.description,jdbcType=VARCHAR},
+            #{roleModel.lastUpdateTime,jdbcType=TIMESTAMP}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE role_model
+        <set>
+            <if test="roleModel.name != null"> name= #{roleModel.name,jdbcType=VARCHAR},</if>
+            <if test="roleModel.isActive != null"> is_active= #{roleModel.isActive,jdbcType=TINYINT},</if>
+            <if test="roleModel.description != null"> description= #{roleModel.description,jdbcType=VARCHAR},</if>
+            <if test="roleModel.lastUpdateTime != null"> last_update_time= #{roleModel.lastUpdateTime,jdbcType=TIMESTAMP}</if>
+        </set>
+        WHERE id = #{roleModel.id,jdbcType=INTEGER}
+    </update>
+</mapper>
+

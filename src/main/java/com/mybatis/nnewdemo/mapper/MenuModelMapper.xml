@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mybatis.nnewdemo.mapper.MenuModelMapper">
+    <!--auto generated Code-->
+    <resultMap id="BaseResultMap" type="com.mybatis.nnewdemo.entity.MenuModel">
+        <result column="id" property="id" jdbcType="INTEGER"/>
+        <result column="value" property="value" jdbcType="VARCHAR"/>
+        <result column="display_value" property="displayValue" jdbcType="VARCHAR"/>
+        <result column="url" property="url" jdbcType="VARCHAR"/>
+        <result column="category" property="category" jdbcType="INTEGER"/>
+        <result column="description" property="description" jdbcType="VARCHAR"/>
+        <result column="is_active" property="isActive" jdbcType="TINYINT"/>
+        <result column="last_update_time" property="lastUpdateTime" jdbcType="TIMESTAMP"/>
+        <result column="r_fk" property="rFk" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="Base_Column_List">
+        id,
+        value,
+        display_value,
+        url,
+        category,
+        description,
+        is_active,
+        last_update_time,
+        r_fk
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="menuModel.id">
+        INSERT INTO menu_model (
+            id,
+            value,
+            display_value,
+            url,
+            category,
+            description,
+            is_active,
+            last_update_time,
+            r_fk
+        ) VALUES (
+            #{menuModel.id,jdbcType=INTEGER},
+            #{menuModel.value,jdbcType=VARCHAR},
+            #{menuModel.displayValue,jdbcType=VARCHAR},
+            #{menuModel.url,jdbcType=VARCHAR},
+            #{menuModel.category,jdbcType=INTEGER},
+            #{menuModel.description,jdbcType=VARCHAR},
+            #{menuModel.isActive,jdbcType=TINYINT},
+            #{menuModel.lastUpdateTime,jdbcType=TIMESTAMP},
+            #{menuModel.rFk,jdbcType=INTEGER}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="menuModel.id">
+        INSERT INTO menu_model
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuModel.id!=null"> id,</if>
+            <if test="menuModel.value!=null"> value,</if>
+            <if test="menuModel.displayValue!=null"> display_value,</if>
+            <if test="menuModel.url!=null"> url,</if>
+            <if test="menuModel.category!=null"> category,</if>
+            <if test="menuModel.description!=null"> description,</if>
+            <if test="menuModel.isActive!=null"> is_active,</if>
+            <if test="menuModel.lastUpdateTime!=null"> last_update_time,</if>
+            <if test="menuModel.rFk!=null"> r_fk,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="menuModel.id!=null">#{menuModel.id,jdbcType=INTEGER},
+            </if>
+            <if test="menuModel.value!=null">#{menuModel.value,jdbcType=VARCHAR},
+            </if>
+            <if test="menuModel.displayValue!=null">#{menuModel.displayValue,jdbcType=VARCHAR},
+            </if>
+            <if test="menuModel.url!=null">#{menuModel.url,jdbcType=VARCHAR},
+            </if>
+            <if test="menuModel.category!=null">#{menuModel.category,jdbcType=INTEGER},
+            </if>
+            <if test="menuModel.description!=null">#{menuModel.description,jdbcType=VARCHAR},
+            </if>
+            <if test="menuModel.isActive!=null">#{menuModel.isActive,jdbcType=TINYINT},
+            </if>
+            <if test="menuModel.lastUpdateTime!=null">#{menuModel.lastUpdateTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="menuModel.rFk!=null">#{menuModel.rFk,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO menu_model (
+            id,
+            value,
+            display_value,
+            url,
+            category,
+            description,
+            is_active,
+            last_update_time,
+            r_fk
+        )VALUES
+        <foreach collection="menuModels" item="menuModel" index="index" separator=",">
+            (
+            #{menuModel.id,jdbcType=INTEGER},
+            #{menuModel.value,jdbcType=VARCHAR},
+            #{menuModel.displayValue,jdbcType=VARCHAR},
+            #{menuModel.url,jdbcType=VARCHAR},
+            #{menuModel.category,jdbcType=INTEGER},
+            #{menuModel.description,jdbcType=VARCHAR},
+            #{menuModel.isActive,jdbcType=TINYINT},
+            #{menuModel.lastUpdateTime,jdbcType=TIMESTAMP},
+            #{menuModel.rFk,jdbcType=INTEGER}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="updateByPrimaryKeySelective">
+        UPDATE menu_model
+        <set>
+            <if test="menuModel.value != null"> value= #{menuModel.value,jdbcType=VARCHAR},</if>
+            <if test="menuModel.displayValue != null"> display_value= #{menuModel.displayValue,jdbcType=VARCHAR},</if>
+            <if test="menuModel.url != null"> url= #{menuModel.url,jdbcType=VARCHAR},</if>
+            <if test="menuModel.category != null"> category= #{menuModel.category,jdbcType=INTEGER},</if>
+            <if test="menuModel.description != null"> description= #{menuModel.description,jdbcType=VARCHAR},</if>
+            <if test="menuModel.isActive != null"> is_active= #{menuModel.isActive,jdbcType=TINYINT},</if>
+            <if test="menuModel.lastUpdateTime != null"> last_update_time= #{menuModel.lastUpdateTime,jdbcType=TIMESTAMP},</if>
+            <if test="menuModel.rFk != null"> r_fk= #{menuModel.rFk,jdbcType=INTEGER}</if>
+        </set>
+        WHERE id = #{menuModel.id,jdbcType=INTEGER}
+    </update>
+</mapper>
+
